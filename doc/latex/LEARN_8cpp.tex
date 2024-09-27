@@ -1,0 +1,146 @@
+\hypertarget{LEARN_8cpp}{}\doxysection{src/\+LEARN.cpp File Reference}
+\label{LEARN_8cpp}\index{src/LEARN.cpp@{src/LEARN.cpp}}
+{\ttfamily \#include \char`\"{}../include/\+Bigram\+Counter.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{LEARN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{show\+English\+Help}} (std\+::ostream \&output\+Stream)
+\item 
+int \mbox{\hyperlink{LEARN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Silvia Acid Carrillo \href{mailto:acid@decsai.ugr.es}{\texttt{ acid@decsai.\+ugr.\+es}} 
+
+Andrés Cano Utrera \href{mailto:acu@decsai.ugr.es}{\texttt{ acu@decsai.\+ugr.\+es}} 
+
+Luis Castillo Vidal \href{mailto:L.Castillo@decsai.ugr.es}{\texttt{ L.\+Castillo@decsai.\+ugr.\+es}}
+\end{DoxyAuthor}
+Created on 29 January 2023, 11\+:00 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{LEARN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{LEARN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{LEARN.cpp@{LEARN.cpp}!main@{main}}
+\index{main@{main}!LEARN.cpp@{LEARN.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+This program learns a \mbox{\hyperlink{classLanguage}{Language}} model from a set of input tex files (tex1.\+txt, tex2.\+txt, ... Running example\+: \begin{quote}
+LEARN \mbox{[}-\/t$\vert$-\/b\mbox{]} \mbox{[}-\/l language\+Id\mbox{]} \mbox{[}-\/o output\+Filename\mbox{]} $<$text1.\+txt$>$ \mbox{[}$<$text2.\+txt$>$ $<$text3.\+txt$>$ ....\mbox{]} \end{quote}
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line parameters \\
+\hline
+{\em argv} & The vector of command line parameters (cstrings) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 If there is no error; a value $>$ 0 if error 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file LEARN.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                                  \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (argc < 2) \{}
+\DoxyCodeLine{47         \mbox{\hyperlink{LEARN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{showEnglishHelp}}(std::cerr);}
+\DoxyCodeLine{48         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     std::string languageId = \textcolor{stringliteral}{"{}unknown"{}};}
+\DoxyCodeLine{52     std::string outputName = \textcolor{stringliteral}{"{}output.bgr"{}};}
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} binario = \textcolor{keyword}{false};}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} posicionId = 0, posicion\_output = 0, posicionFicheros = 1;}
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} salir = \textcolor{keyword}{false};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < argc; i++)}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} (argv[i][0] == \textcolor{charliteral}{'-\/'} \&\& argv[i][1] == \textcolor{charliteral}{'b'} \&\& strlen(argv[i])) \{}
+\DoxyCodeLine{59             binario = \textcolor{keyword}{true};}
+\DoxyCodeLine{60             posicionFicheros++;}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < argc; i++)}
+\DoxyCodeLine{64         \textcolor{keywordflow}{if} (argv[i][0] == \textcolor{charliteral}{'-\/'})}
+\DoxyCodeLine{65             \textcolor{keywordflow}{if} (strlen(argv[i]) != 2 || (argv[i][1] != \textcolor{charliteral}{'t'} \&\& argv[i][1] != \textcolor{charliteral}{'b'} \&\& argv[i][1] != \textcolor{charliteral}{'o'} \&\& argv[i][1] != \textcolor{charliteral}{'l'})) \{}
+\DoxyCodeLine{66                 \mbox{\hyperlink{LEARN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{showEnglishHelp}}(std::cerr);}
+\DoxyCodeLine{67                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{68             \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordflow}{for} (posicionId = 0; posicionId < argc \&\& salir == \textcolor{keyword}{false}; posicionId++)}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} (argv[posicionId][0] == \textcolor{charliteral}{'-\/'} \&\& argv[posicionId][1] == \textcolor{charliteral}{'l'} \&\& strlen(argv[posicionId]) == 2) \{}
+\DoxyCodeLine{73             languageId = argv[posicionId + 1];}
+\DoxyCodeLine{74             salir = \textcolor{keyword}{true};}
+\DoxyCodeLine{75             posicionFicheros += 2;}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     salir = \textcolor{keyword}{false};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordflow}{for} (posicion\_output = 0; posicion\_output < argc \&\& salir == \textcolor{keyword}{false}; posicion\_output++)}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if} (argv[posicion\_output][0] == \textcolor{charliteral}{'-\/'} \&\& argv[posicion\_output][1] == \textcolor{charliteral}{'o'} \&\& strlen(argv[posicion\_output]) == 2) \{}
+\DoxyCodeLine{82             outputName = argv[posicion\_output + 1];}
+\DoxyCodeLine{83             salir = \textcolor{keyword}{true};}
+\DoxyCodeLine{84             posicionFicheros += 2;}
+\DoxyCodeLine{85         \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \mbox{\hyperlink{classBigramCounter}{BigramCounter}} resultado;}
+\DoxyCodeLine{89     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = posicionFicheros; i < argc; i++) \{}
+\DoxyCodeLine{90         resultado.\mbox{\hyperlink{classBigramCounter_a2557b614131c25e88501c67e5d28b713}{calculateFrequencies}}(argv[i]);}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \mbox{\hyperlink{classLanguage}{Language}} salida = resultado.\mbox{\hyperlink{classBigramCounter_ac37bc354abb2c51147e5b3fb71fc2d05}{toLanguage}}();}
+\DoxyCodeLine{94     salida.\mbox{\hyperlink{classLanguage_a418b2d2a94102c778e5754f40407feda}{setLanguageId}}(languageId);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{char} output\_file[outputName.length() + 1];}
+\DoxyCodeLine{97     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < outputName.length(); i++)}
+\DoxyCodeLine{98         output\_file[i] = outputName[i];}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     output\_file[outputName.length()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{101     salida.\mbox{\hyperlink{classLanguage_a9e5992e8893e995e99677da8a73094b8}{sort}}();}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{if} (binario)}
+\DoxyCodeLine{104         salida.\mbox{\hyperlink{classLanguage_aa24a617594b3efdd0c8ca6ea333bfaca}{saveBinary}}(output\_file);}
+\DoxyCodeLine{105     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{106         salida.\mbox{\hyperlink{classLanguage_a836fbfd47e33674834d3de142d015a4d}{save}}(output\_file);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{109 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{LEARN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}\label{LEARN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}} 
+\index{LEARN.cpp@{LEARN.cpp}!showEnglishHelp@{showEnglishHelp}}
+\index{showEnglishHelp@{showEnglishHelp}!LEARN.cpp@{LEARN.cpp}}
+\doxysubsubsection{\texorpdfstring{showEnglishHelp()}{showEnglishHelp()}}
+{\footnotesize\ttfamily void show\+English\+Help (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+Shows help about the use of this program in the given output stream 
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & The output stream where the help will be shown (for example, cout, cerr, etc) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file LEARN.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                                \{}
+\DoxyCodeLine{24     outputStream << \textcolor{stringliteral}{"{}Error, run with the following parameters:"{}} << std::endl;}
+\DoxyCodeLine{25     outputStream << \textcolor{stringliteral}{"{}LEARN [-\/t|-\/b] [-\/l languageId] [-\/o outputFilename] <text1.txt> [<text2.txt> <text3.txt> .... ]"{}} << std::endl;}
+\DoxyCodeLine{26     outputStream << \textcolor{stringliteral}{"{}           learn the model for the language languageId from the text files <text1.txt> <text2.txt> <text3.txt> ..."{}} << std::endl;}
+\DoxyCodeLine{27     outputStream << std::endl;}
+\DoxyCodeLine{28     outputStream << \textcolor{stringliteral}{"{}Parameters:"{}} << std::endl;}
+\DoxyCodeLine{29     outputStream << \textcolor{stringliteral}{"{}-\/t|-\/b: text mode or binary mode for the output file (-\/t by default)"{}} << std::endl;}
+\DoxyCodeLine{30     outputStream << \textcolor{stringliteral}{"{}-\/l languageId: language identifier (unknown by default)"{}} << std::endl;}
+\DoxyCodeLine{31     outputStream << \textcolor{stringliteral}{"{}-\/o outputFilename: name of the output file (output.bgr by default)"{}} << std::endl;}
+\DoxyCodeLine{32     outputStream << \textcolor{stringliteral}{"{}<text1.txt> <text2.txt> <text3.txt> ....: names of the input files (at least one is mandatory)"{}} << std::endl;}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}

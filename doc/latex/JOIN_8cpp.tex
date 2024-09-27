@@ -1,0 +1,129 @@
+\hypertarget{JOIN_8cpp}{}\doxysection{src/\+JOIN.cpp File Reference}
+\label{JOIN_8cpp}\index{src/JOIN.cpp@{src/JOIN.cpp}}
+{\ttfamily \#include \char`\"{}Bigram\+Counter.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{JOIN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{show\+English\+Help}} (std\+::ostream \&output\+Stream)
+\item 
+int \mbox{\hyperlink{JOIN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Silvia Acid Carrillo \href{mailto:acid@decsai.ugr.es}{\texttt{ acid@decsai.\+ugr.\+es}} 
+
+Andrés Cano Utrera \href{mailto:acu@decsai.ugr.es}{\texttt{ acu@decsai.\+ugr.\+es}} 
+
+Luis Castillo Vidal \href{mailto:L.Castillo@decsai.ugr.es}{\texttt{ L.\+Castillo@decsai.\+ugr.\+es}}
+\end{DoxyAuthor}
+Created on 29 January 2023, 11\+:00 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{JOIN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{JOIN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{JOIN.cpp@{JOIN.cpp}!main@{main}}
+\index{main@{main}!JOIN.cpp@{JOIN.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+This program reads an undefined number of \mbox{\hyperlink{classLanguage}{Language}} objects from the files passed as parameters to \mbox{\hyperlink{JOIN_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}. It obtains as result the union of all the input \mbox{\hyperlink{classLanguage}{Language}} objects. The result is then sorted by decreasing order of frequency and alphabetical order of bigrams when there is any tie in frequencies. Finally, the resulting \mbox{\hyperlink{classLanguage}{Language}} is saved in an output file. The program must have at least an output file. Running example\+: \begin{quote}
+JOIN \mbox{[}-\/t$\vert$-\/b\mbox{]} \mbox{[}-\/o $<$output\+File.\+bgr$>$\mbox{]} $<$file1.\+bgr$>$ \mbox{[}$<$file2.\+bgr$>$ ... $<$filen.\+bgr$>$\mbox{]} \end{quote}
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line parameters \\
+\hline
+{\em argv} & The vector of command line parameters (cstrings) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 If there is no error; a value $>$ 0 if error 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file JOIN.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                  \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} (argc < 2) \{}
+\DoxyCodeLine{49         \mbox{\hyperlink{JOIN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{showEnglishHelp}}(std::cerr);}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52     std::string name\_salida = \textcolor{stringliteral}{"{}output.bgr"{}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{classLanguage}{Language}} first;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} primer\_fichero = 1;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{bool} binario = \textcolor{keyword}{false};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} (argv[1][0] == \textcolor{charliteral}{'-\/'} \&\& argv[1][1] == \textcolor{charliteral}{'b'} \&\& strlen(argv[1])) \{}
+\DoxyCodeLine{60         binario = \textcolor{keyword}{true};}
+\DoxyCodeLine{61         primer\_fichero++;}
+\DoxyCodeLine{62     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (argv[1][0] == \textcolor{charliteral}{'-\/'} \&\& argv[1][1] == \textcolor{charliteral}{'t'} \&\& strlen(argv[1]) == 2)}
+\DoxyCodeLine{63         primer\_fichero++;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((argv[1][0] == \textcolor{charliteral}{'-\/'} \&\& argv[1][1] != \textcolor{charliteral}{'t'} \&\& argv[1][1] != \textcolor{charliteral}{'b'} \&\& argv[1][1] != \textcolor{charliteral}{'o'})) \{}
+\DoxyCodeLine{66         \mbox{\hyperlink{JOIN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{showEnglishHelp}}(std::cerr);}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < argc; i++)}
+\DoxyCodeLine{71         \textcolor{keywordflow}{if} (argv[i][0] == \textcolor{charliteral}{'-\/'} \&\& argv[i][1] == \textcolor{charliteral}{'o'} \&\& strlen(argv[1]) == 2) \{}
+\DoxyCodeLine{72             primer\_fichero += 2;}
+\DoxyCodeLine{73             name\_salida = argv[i + 1];}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     first.\mbox{\hyperlink{classLanguage_af0eeaecee6e1b049f51fb506face7a67}{load}}(argv[primer\_fichero]);}
+\DoxyCodeLine{77     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = primer\_fichero + 1; i < argc; i++) \{}
+\DoxyCodeLine{78         \mbox{\hyperlink{classLanguage}{Language}} aux;}
+\DoxyCodeLine{79         aux.\mbox{\hyperlink{classLanguage_af0eeaecee6e1b049f51fb506face7a67}{load}}(argv[i]);}
+\DoxyCodeLine{80         first += aux;}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{char} output\_file[name\_salida.length() + 1];}
+\DoxyCodeLine{84     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < name\_salida.length(); i++)}
+\DoxyCodeLine{85         output\_file[i] = name\_salida[i];}
+\DoxyCodeLine{86     output\_file[name\_salida.length()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{87     first.\mbox{\hyperlink{classLanguage_a9e5992e8893e995e99677da8a73094b8}{sort}}();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordflow}{if} (binario)}
+\DoxyCodeLine{90         first.\mbox{\hyperlink{classLanguage_aa24a617594b3efdd0c8ca6ea333bfaca}{saveBinary}}(output\_file);}
+\DoxyCodeLine{91     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{92         first.\mbox{\hyperlink{classLanguage_a836fbfd47e33674834d3de142d015a4d}{save}}(output\_file);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{95 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{JOIN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}\label{JOIN_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}} 
+\index{JOIN.cpp@{JOIN.cpp}!showEnglishHelp@{showEnglishHelp}}
+\index{showEnglishHelp@{showEnglishHelp}!JOIN.cpp@{JOIN.cpp}}
+\doxysubsubsection{\texorpdfstring{showEnglishHelp()}{showEnglishHelp()}}
+{\footnotesize\ttfamily void show\+English\+Help (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+Shows help about the use of this program in the given output stream 
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & The output stream where the help will be shown (for example, cout, cerr, etc) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file JOIN.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                                \{}
+\DoxyCodeLine{24     outputStream << \textcolor{stringliteral}{"{}Error, run with the following parameters:"{}} << std::endl;}
+\DoxyCodeLine{25     outputStream << \textcolor{stringliteral}{"{}JOIN [-\/t|-\/b] [-\/o <outputFile.bgr>] <file1.bgr> [<file2.bgr> ... <filen.bgr>] "{}} << std::endl;}
+\DoxyCodeLine{26     outputStream << \textcolor{stringliteral}{"{}       join the Language files <file1.bgr> <file2.bgr> ... into <outputFile.bgr>"{}} << std::endl;}
+\DoxyCodeLine{27     outputStream << std::endl;}
+\DoxyCodeLine{28     outputStream << \textcolor{stringliteral}{"{}Parameters:"{}} << std::endl;}
+\DoxyCodeLine{29     outputStream << \textcolor{stringliteral}{"{}-\/t|-\/b: text mode or binary mode for the output file (-\/t by default)"{}} << std::endl;}
+\DoxyCodeLine{30     outputStream << \textcolor{stringliteral}{"{}-\/o <outputFile.bgr>: name of the output file (output.bgr by default)"{}} << std::endl;}
+\DoxyCodeLine{31     outputStream << \textcolor{stringliteral}{"{}<file*.bgr>: each one of the files to be joined"{}} << std::endl;}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,318 @@
+\hypertarget{BigramFreq_8cpp}{}\doxysection{src/\+Bigram\+Freq.cpp File Reference}
+\label{BigramFreq_8cpp}\index{src/BigramFreq.cpp@{src/BigramFreq.cpp}}
+{\ttfamily \#include \char`\"{}Bigram\+Freq.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{BigramFreq_8cpp_a8d8a0a6a7b37133584a2a118be90af83}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream insertion operator for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{BigramFreq_8cpp_a2379d135525c59cc64ee8655b944067d}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream extraction operator for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{BigramFreq_8cpp_a7a5aee2a435d87d9be3d0054785c02b2}{operator$>$}} (const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq1, const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq2)
+\begin{DoxyCompactList}\small\item\em Overloading of the relational operator $>$ for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{BigramFreq_8cpp_aeeb69509b5faf8f8a59bb9ebd458626f}{operator$<$}} (const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq1, const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator $<$ for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{BigramFreq_8cpp_abdecc7c355f7ffac39c1c60d2cddc7f0}{operator==}} (\mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} bigram\+Freq1, \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} bigram\+Freq2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator == for \mbox{\hyperlink{classBigram}{Bigram}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{BigramFreq_8cpp_abb177f480488739b528c779670371d0d}{operator!=}} (const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq1, const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator != for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{BigramFreq_8cpp_a6ac75f74505d5cd2d1f2e05f8c75d31e}{operator$<$=}} (const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq1, const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator $<$= for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{BigramFreq_8cpp_aa3b69596281653ce55a797ea5723a515}{operator$>$=}} (const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq1, const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&bigram\+Freq2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator $>$= for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@\+Author\+: Ivan Rodriguez Chacon
+
+Created on 18 de mayo de 2023, 9\+:38 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{BigramFreq_8cpp_abb177f480488739b528c779670371d0d}\label{BigramFreq_8cpp_abb177f480488739b528c779670371d0d}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq1,  }\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator != for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram\+Freq1} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+{\em bigram\+Freq2} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two bigram\+Freq1 are not equals (see operator==); false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105                                                                               \{}
+\DoxyCodeLine{106     \textcolor{keywordtype}{bool} resultado = (bigramFreq1 == bigramFreq2);}
+\DoxyCodeLine{107     \textcolor{keywordflow}{return} !resultado;}
+\DoxyCodeLine{108 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_aeeb69509b5faf8f8a59bb9ebd458626f}\label{BigramFreq_8cpp_aeeb69509b5faf8f8a59bb9ebd458626f}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq1,  }\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator $<$ for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram\+Freq1} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+{\em bigram\+Freq2} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the bigram\+Freq1 $<$ bigram\+Freq2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79                                                                              \{}
+\DoxyCodeLine{80     \textcolor{keywordtype}{bool} resultado = \textcolor{keyword}{false};}
+\DoxyCodeLine{81     std::string bigram1 = bigramFreq1.\mbox{\hyperlink{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}{toString}}();}
+\DoxyCodeLine{82     std::string bigram2 = bigramFreq2.\mbox{\hyperlink{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}{toString}}();}
+\DoxyCodeLine{83     \textcolor{keywordtype}{int} freq1 = bigramFreq1.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{84     \textcolor{keywordtype}{int} freq2 = bigramFreq2.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} (freq1 < freq2 || (freq1 == freq2 \&\& bigram1 > bigram2))}
+\DoxyCodeLine{87         resultado = \textcolor{keyword}{true};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{90 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_a8d8a0a6a7b37133584a2a118be90af83}\label{BigramFreq_8cpp_a8d8a0a6a7b37133584a2a118be90af83}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream insertion operator for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to be used. Output parameter \\
+\hline
+{\em bigram\+Freq} & the \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily os} A reference to the output stream 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                                                      \{}
+\DoxyCodeLine{55     os << bigramFreq.\mbox{\hyperlink{classBigramFreq_a70b62a6da922585cff4e2751fe478e41}{getBigram}}() << bigramFreq.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{57 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_a6ac75f74505d5cd2d1f2e05f8c75d31e}\label{BigramFreq_8cpp_a6ac75f74505d5cd2d1f2e05f8c75d31e}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq1,  }\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator $<$= for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram\+Freq1} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+{\em bigram\+Freq2} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the bigram\+Freq1 $<$= bigram\+Freq2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                                                                               \{}
+\DoxyCodeLine{111     \textcolor{keywordtype}{bool} es\_igual = (bigramFreq1 == bigramFreq2);}
+\DoxyCodeLine{112     \textcolor{keywordtype}{bool} es\_menor = (bigramFreq1 < bigramFreq2);}
+\DoxyCodeLine{113     \textcolor{keywordtype}{bool} resultado = es\_igual \&\& es\_menor;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{116 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_abdecc7c355f7ffac39c1c60d2cddc7f0}\label{BigramFreq_8cpp_abdecc7c355f7ffac39c1c60d2cddc7f0}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}}}]{bigram\+Freq1,  }\item[{\mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}}}]{bigram\+Freq2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator == for \mbox{\hyperlink{classBigram}{Bigram}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram\+Freq1} & a \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. Input parameter \\
+\hline
+{\em bigram\+Freq2} & a \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two bigrams contains the same pair Bigram-\/\+Frequency; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                                 \{}
+\DoxyCodeLine{93     \textcolor{keywordtype}{bool} resultado = \textcolor{keyword}{false};}
+\DoxyCodeLine{94     std::string bigram1 = bigramFreq1.\mbox{\hyperlink{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}{toString}}();}
+\DoxyCodeLine{95     std::string bigram2 = bigramFreq2.\mbox{\hyperlink{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}{toString}}();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} freq1 = bigramFreq1.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{97     \textcolor{keywordtype}{int} freq2 = bigramFreq2.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} (freq1 == freq2 \&\& bigram1 == bigram2)}
+\DoxyCodeLine{100         resultado = \textcolor{keyword}{true};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{103 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_a7a5aee2a435d87d9be3d0054785c02b2}\label{BigramFreq_8cpp_a7a5aee2a435d87d9be3d0054785c02b2}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq1,  }\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the relational operator $>$ for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram\+Freq1} & The first object to be compared. Input parameter \\
+\hline
+{\em bigram\+Freq2} & The second object to be compared. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the frequency of {\ttfamily bigram\+Freq1} is lower than that of {\ttfamily bigram\+Freq2} or if both frequencies are equals and the text of the {\ttfamily bigram\+Freq1} is minor than the text of {\ttfamily bigram\+Freq2}; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68                                                                              \{}
+\DoxyCodeLine{69     \textcolor{keywordtype}{bool} resultado = \textcolor{keyword}{false};}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} freq1 = bigramFreq1.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} freq2 = bigramFreq2.\mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{getFrequency}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} (freq1 > freq2 || (freq1 == freq2 \&\& bigramFreq1.\mbox{\hyperlink{classBigramFreq_a70b62a6da922585cff4e2751fe478e41}{getBigram}}().\mbox{\hyperlink{classBigram_a7a782c0fe5764cd4d42427fa284b79d1}{toString}}() < bigramFreq2.\mbox{\hyperlink{classBigramFreq_a70b62a6da922585cff4e2751fe478e41}{getBigram}}().\mbox{\hyperlink{classBigram_a7a782c0fe5764cd4d42427fa284b79d1}{toString}}()))}
+\DoxyCodeLine{74         resultado = \textcolor{keyword}{true};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_aa3b69596281653ce55a797ea5723a515}\label{BigramFreq_8cpp_aa3b69596281653ce55a797ea5723a515}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq1,  }\item[{const \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator $>$= for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram\+Freq1} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+{\em bigram\+Freq2} & a \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the bigram\+Freq1 $>$= bigram\+Freq2 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118                                                                               \{}
+\DoxyCodeLine{119     \textcolor{keywordtype}{bool} es\_igual = (bigramFreq1 == bigramFreq2);}
+\DoxyCodeLine{120     \textcolor{keywordtype}{bool} es\_menor = (bigramFreq1 > bigramFreq2);}
+\DoxyCodeLine{121     \textcolor{keywordtype}{bool} resultado = es\_igual \&\& es\_menor;}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{124 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{BigramFreq_8cpp_a2379d135525c59cc64ee8655b944067d}\label{BigramFreq_8cpp_a2379d135525c59cc64ee8655b944067d}} 
+\index{BigramFreq.cpp@{BigramFreq.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!BigramFreq.cpp@{BigramFreq.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} \&}]{bigram\+Freq }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream extraction operator for \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to be used. Input parameter \\
+\hline
+{\em bigram\+Freq} & the \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. Output parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily is} A reference to the input stream 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                                \{}
+\DoxyCodeLine{60     \mbox{\hyperlink{classBigram}{Bigram}} bigram;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} freq;}
+\DoxyCodeLine{62     is >> bigram>>freq;}
+\DoxyCodeLine{63     bigramFreq.\mbox{\hyperlink{classBigramFreq_af3f304d72677d24ec0bc8e5a62358564}{setBigram}}(bigram);}
+\DoxyCodeLine{64     bigramFreq.\mbox{\hyperlink{classBigramFreq_ac79fcef10bffbab2f45d7da859e54af8}{setFrequency}}(freq);}
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} is;}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}

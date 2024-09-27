@@ -1,0 +1,231 @@
+\hypertarget{classBigramFreq}{}\doxysection{Bigram\+Freq Class Reference}
+\label{classBigramFreq}\index{BigramFreq@{BigramFreq}}
+
+
+A pair of a \mbox{\hyperlink{classBigram}{Bigram}} object and a frequency (an int), that gives the frequency of a \mbox{\hyperlink{classBigram}{Bigram}} (times it appears) in a text.  
+
+
+
+
+{\ttfamily \#include $<$Bigram\+Freq.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBigramFreq_a5f9e6a372e68b03f42d09bc02fed9319}\label{classBigramFreq_a5f9e6a372e68b03f42d09bc02fed9319}} 
+\mbox{\hyperlink{classBigramFreq_a5f9e6a372e68b03f42d09bc02fed9319}{Bigram\+Freq}} ()
+\begin{DoxyCompactList}\small\item\em Base constructor. It builds a \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object with \char`\"{}\+\_\+\+\_\+\char`\"{} as the text of the bigram and 0 as the frequency. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigram}{Bigram}} \& \mbox{\hyperlink{classBigramFreq_a70b62a6da922585cff4e2751fe478e41}{get\+Bigram}} () const
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the \mbox{\hyperlink{classBigram}{Bigram}} of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}{get\+Frequency}} () const
+\begin{DoxyCompactList}\small\item\em Gets the frequency of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBigramFreq_af3f304d72677d24ec0bc8e5a62358564}{set\+Bigram}} (const \mbox{\hyperlink{classBigram}{Bigram}} \&bigram)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classBigram}{Bigram}} of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBigramFreq_ac79fcef10bffbab2f45d7da859e54af8}{set\+Frequency}} (const int \&frequency)
+\begin{DoxyCompactList}\small\item\em Sets the frequency of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Obtains a string with the string and frequency of the bigram in this object (separated by a whitespace). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBigramFreq_ad52a8db69ccddb64db86a81b69dae29e}{serialize}} (std\+::ostream \&output\+Stream) const
+\item 
+void \mbox{\hyperlink{classBigramFreq_afe7020766fca30a12c4f9f89fb182770}{deserialize}} (std\+::istream \&input\+Sstream)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A pair of a \mbox{\hyperlink{classBigram}{Bigram}} object and a frequency (an int), that gives the frequency of a \mbox{\hyperlink{classBigram}{Bigram}} (times it appears) in a text. 
+
+Definition at line 27 of file Bigram\+Freq.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBigramFreq_afe7020766fca30a12c4f9f89fb182770}\label{classBigramFreq_afe7020766fca30a12c4f9f89fb182770}} 
+\index{BigramFreq@{BigramFreq}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily void Bigram\+Freq\+::deserialize (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input\+Sstream }\end{DoxyParamCaption})}
+
+Deserializes this object from the given input stream. It first deserializes the \mbox{\hyperlink{classBigram}{Bigram}} of this object and them then the bytes of the frequency (an int value) in binary format (using method istream\+::read(char$\ast$ s, streamsize n)) 
+\begin{DoxyParams}{Parameters}
+{\em input\+Sstream} & A input stream from which this object will be deserialized \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                                                      \{}
+\DoxyCodeLine{46     \textcolor{keywordtype}{char} bigram[2];}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} freq;}
+\DoxyCodeLine{48     inputSstream.read(bigram, \textcolor{keyword}{sizeof} (\textcolor{keywordtype}{char}) * 2);}
+\DoxyCodeLine{49     inputSstream.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>} (\&freq), \textcolor{keyword}{sizeof} (freq));}
+\DoxyCodeLine{50     \_bigram.\mbox{\hyperlink{classBigram_a57a489a9a793c55c64cc57b102af0e79}{editText}}(bigram);}
+\DoxyCodeLine{51     \_frequency = freq;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramFreq_a70b62a6da922585cff4e2751fe478e41}\label{classBigramFreq_a70b62a6da922585cff4e2751fe478e41}} 
+\index{BigramFreq@{BigramFreq}!getBigram@{getBigram}}
+\index{getBigram@{getBigram}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{getBigram()}{getBigram()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigram}{Bigram}} \& Bigram\+Freq\+::get\+Bigram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets a const reference to the \mbox{\hyperlink{classBigram}{Bigram}} of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. 
+
+\begin{DoxyReturn}{Returns}
+A const reference to the \mbox{\hyperlink{classBigram}{Bigram}} of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                           \{}
+\DoxyCodeLine{16     \textcolor{keywordflow}{return} \_bigram;}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}\label{classBigramFreq_a2678f74a436cca1ff40af7a1ac7b219a}} 
+\index{BigramFreq@{BigramFreq}!getFrequency@{getFrequency}}
+\index{getFrequency@{getFrequency}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{getFrequency()}{getFrequency()}}
+{\footnotesize\ttfamily int Bigram\+Freq\+::get\+Frequency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the frequency of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. 
+
+\begin{DoxyReturn}{Returns}
+The frequency of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                    \{}
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} \_frequency;}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramFreq_ad52a8db69ccddb64db86a81b69dae29e}\label{classBigramFreq_ad52a8db69ccddb64db86a81b69dae29e}} 
+\index{BigramFreq@{BigramFreq}!serialize@{serialize}}
+\index{serialize@{serialize}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void Bigram\+Freq\+::serialize (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption}) const}
+
+Serializes this object to the given output stream. It first serializes the bigram of this object and them the bytes of the frequency (an int value) in binary format (using method ostream\+::write(const char$\ast$ s, streamsize n)) 
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & A output stream where this object will be serialized \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                                          \{}
+\DoxyCodeLine{41     outputStream.write(\_bigram.\mbox{\hyperlink{classBigram_ae8a73bc031d48028abea3a78ecbd61b0}{getText}}().c\_str(), sizeof (\textcolor{keywordtype}{char}) * 2);}
+\DoxyCodeLine{42     outputStream.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char}*\textcolor{keyword}{>} (\&\_frequency), \textcolor{keyword}{sizeof} (\_frequency));}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramFreq_af3f304d72677d24ec0bc8e5a62358564}\label{classBigramFreq_af3f304d72677d24ec0bc8e5a62358564}} 
+\index{BigramFreq@{BigramFreq}!setBigram@{setBigram}}
+\index{setBigram@{setBigram}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{setBigram()}{setBigram()}}
+{\footnotesize\ttfamily void Bigram\+Freq\+::set\+Bigram (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigram}{Bigram}} \&}]{bigram }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{classBigram}{Bigram}} of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram} & The new \mbox{\hyperlink{classBigram}{Bigram}} value for this object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                                \{}
+\DoxyCodeLine{24     \_bigram.\mbox{\hyperlink{classBigram_a57a489a9a793c55c64cc57b102af0e79}{editText}}(bigram.\mbox{\hyperlink{classBigram_ae8a73bc031d48028abea3a78ecbd61b0}{getText}}());}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramFreq_ac79fcef10bffbab2f45d7da859e54af8}\label{classBigramFreq_ac79fcef10bffbab2f45d7da859e54af8}} 
+\index{BigramFreq@{BigramFreq}!setFrequency@{setFrequency}}
+\index{setFrequency@{setFrequency}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{setFrequency()}{setFrequency()}}
+{\footnotesize\ttfamily void Bigram\+Freq\+::set\+Frequency (\begin{DoxyParamCaption}\item[{const int \&}]{frequency }\end{DoxyParamCaption})}
+
+
+
+Sets the frequency of this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if {\ttfamily frequency} is negative \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em frequency} & the new frequency value for this \mbox{\hyperlink{classBigramFreq}{Bigram\+Freq}} object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                                   \{}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} (frequency >= 0)}
+\DoxyCodeLine{29         \_frequency = frequency;}
+\DoxyCodeLine{30     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{31         \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}Se esta poniendo una frecuencia negativa en un BigramFreq"{}});}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}\label{classBigramFreq_ab795f5f5f963d0d08d5ce5f536842eae}} 
+\index{BigramFreq@{BigramFreq}!toString@{toString}}
+\index{toString@{toString}!BigramFreq@{BigramFreq}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Bigram\+Freq\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains a string with the string and frequency of the bigram in this object (separated by a whitespace). 
+
+\begin{DoxyReturn}{Returns}
+A string with the string and frequency of the bigram in this object 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file Bigram\+Freq.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                      \{}
+\DoxyCodeLine{35     std::string freq = std::to\_string(\_frequency);}
+\DoxyCodeLine{36     std::string salida = \_bigram.\mbox{\hyperlink{classBigram_a7a782c0fe5764cd4d42427fa284b79d1}{toString}}() + \textcolor{charliteral}{' '} + freq;}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} salida;}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Bigram\+Freq.\+h\item 
+src/\mbox{\hyperlink{BigramFreq_8cpp}{Bigram\+Freq.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,443 @@
+\hypertarget{classBigramCounter}{}\doxysection{Bigram\+Counter Class Reference}
+\label{classBigramCounter}\index{BigramCounter@{BigramCounter}}
+
+
+It is a helper class used to calculate the frequency of each bigram in a text file. It consists of a square matrix of integers. Each element contains the frequency of the bigram that defines that element\+: the bigram formed taking the characters defined by the row and column of that element.  
+
+
+
+
+{\ttfamily \#include $<$Bigram\+Counter.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBigramCounter_a6ec0c28d23d39ffd2d59f641907b2ac5}{Bigram\+Counter}} (const std\+::string \&valid\+Chars=\mbox{\hyperlink{classBigramCounter_a0a8914821e4dffaf4beb276d02324ab8}{DEFAULT\+\_\+\+VALID\+\_\+\+CHARACTERS}})
+\begin{DoxyCompactList}\small\item\em Constructor of the class. The object will contain a matrix of integers with as many rows and colums as the number of characters in {\ttfamily valid\+Chars} Each element of the matrix will be set to 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigramCounter_a46d463d9ceca8642657ec1155304d1c4}{Bigram\+Counter}} (const \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \&orig)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBigramCounter_a5468efe2ca354c9ca950f54953ee04f8}\label{classBigramCounter_a5468efe2ca354c9ca950f54953ee04f8}} 
+\mbox{\hyperlink{classBigramCounter_a5468efe2ca354c9ca950f54953ee04f8}{$\sim$\+Bigram\+Counter}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number (size) of valid characters that are considered as part of a word in this \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object. Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBigramCounter_aeae84f67db04dd40a0e55283bb726875}{get\+Number\+Active\+Bigrams}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of bigrams with a frequency greater than 0. Query method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigramCounter_a2cdbbd49dd9d4f4b3524f3e9323bac8f}{set\+Frequency}} (const \mbox{\hyperlink{classBigram}{Bigram}} \&bigram, const int \&frequency)
+\begin{DoxyCompactList}\small\item\em Sets the frequency of the given bigram using the value provided with {\ttfamily frequency}. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBigramCounter_ad0b04559c04782c68f47c82b3fb14f1f}{increase\+Frequency}} (const \mbox{\hyperlink{classBigram}{Bigram}} \&bigram, const int \&frequency=0)
+\begin{DoxyCompactList}\small\item\em Increases the current frequency of the given bigram using the value provided with {\ttfamily frequency}. If {\ttfamily frequency} is 0 or frequency is not provided, then 1 is added to the current frequency of the bigram. Modifier method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \& \mbox{\hyperlink{classBigramCounter_a7ca3ed137530062b5874b84ad9e274c4}{operator=}} (const \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \&orig)
+\begin{DoxyCompactList}\small\item\em Overloading of the assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \& \mbox{\hyperlink{classBigramCounter_a13b2e84e72d3daf0ca7da44a9d9b56a7}{operator+=}} (const \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator +=. It increases the current frequencies of the bigrams of this object with the frequencies of the bigrams of the given object. Modifier method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigramCounter_a2557b614131c25e88501c67e5d28b713}{calculate\+Frequencies}} (const char file\+Name\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Reads the given text file and calculates the frequencies of each bigram in that file. Modifier method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLanguage}{Language}} \mbox{\hyperlink{classBigramCounter_ac37bc354abb2c51147e5b3fb71fc2d05}{to\+Language}} () const
+\begin{DoxyCompactList}\small\item\em Builds a \mbox{\hyperlink{classLanguage}{Language}} object from this \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object. The \mbox{\hyperlink{classLanguage}{Language}} will contain the bigrams and frequencies for those one with a frequency greater than 0. Query method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$const \mbox{\hyperlink{classBigramCounter_a0a8914821e4dffaf4beb276d02324ab8}{DEFAULT\+\_\+\+VALID\+\_\+\+CHARACTERS}} = \char`\"{}abcdefghijklmnopqrstuvwxyz\textbackslash{}x\+E0\textbackslash{}x\+E1\textbackslash{}x\+E2\textbackslash{}x\+E3\textbackslash{}x\+E4\textbackslash{}x\+E5\textbackslash{}x\+E6\textbackslash{}x\+E7\textbackslash{}x\+E8\textbackslash{}x\+E9\textbackslash{}x\+EA\textbackslash{}x\+EB\textbackslash{}x\+EC\textbackslash{}x\+ED\textbackslash{}x\+EE\textbackslash{}x\+EF\textbackslash{}x\+F0\textbackslash{}x\+F1\textbackslash{}x\+F2\textbackslash{}x\+F3\textbackslash{}x\+F4\textbackslash{}x\+F5\textbackslash{}x\+F6\textbackslash{}x\+F8\textbackslash{}x\+F9\textbackslash{}x\+FA\textbackslash{}x\+FB\textbackslash{}x\+FC\textbackslash{}x\+FD\textbackslash{}x\+FE\textbackslash{}x\+FF\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is a helper class used to calculate the frequency of each bigram in a text file. It consists of a square matrix of integers. Each element contains the frequency of the bigram that defines that element\+: the bigram formed taking the characters defined by the row and column of that element. 
+
+Definition at line 27 of file Bigram\+Counter.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBigramCounter_a6ec0c28d23d39ffd2d59f641907b2ac5}\label{classBigramCounter_a6ec0c28d23d39ffd2d59f641907b2ac5}} 
+\index{BigramCounter@{BigramCounter}!BigramCounter@{BigramCounter}}
+\index{BigramCounter@{BigramCounter}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{BigramCounter()}{BigramCounter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bigram\+Counter\+::\+Bigram\+Counter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{valid\+Chars = {\ttfamily \mbox{\hyperlink{classBigramCounter_a0a8914821e4dffaf4beb276d02324ab8}{DEFAULT\+\_\+\+VALID\+\_\+\+CHARACTERS}}} }\end{DoxyParamCaption})}
+
+
+
+Constructor of the class. The object will contain a matrix of integers with as many rows and colums as the number of characters in {\ttfamily valid\+Chars} Each element of the matrix will be set to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid\+Chars} & The set of characters that are considered as part of a word. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                         \{}
+\DoxyCodeLine{29     \_validCharacters = validChars;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} tamanio = \_validCharacters.size();}
+\DoxyCodeLine{31     \_frequency = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{32     asignarM();}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_a46d463d9ceca8642657ec1155304d1c4}\label{classBigramCounter_a46d463d9ceca8642657ec1155304d1c4}} 
+\index{BigramCounter@{BigramCounter}!BigramCounter@{BigramCounter}}
+\index{BigramCounter@{BigramCounter}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{BigramCounter()}{BigramCounter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bigram\+Counter\+::\+Bigram\+Counter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \&}]{orig }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & the \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object used as source for the copy. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                                                       \{}
+\DoxyCodeLine{36     \_validCharacters = orig.\_validCharacters;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} tamanio = orig.\mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}();}
+\DoxyCodeLine{38     \_frequency = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{39     asignarM();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < tamanio; i++)}
+\DoxyCodeLine{42         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < tamanio; j++)}
+\DoxyCodeLine{43             \_frequency[i][j] = orig.\_frequency[i][j];}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBigramCounter_a2557b614131c25e88501c67e5d28b713}\label{classBigramCounter_a2557b614131c25e88501c67e5d28b713}} 
+\index{BigramCounter@{BigramCounter}!calculateFrequencies@{calculateFrequencies}}
+\index{calculateFrequencies@{calculateFrequencies}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{calculateFrequencies()}{calculateFrequencies()}}
+{\footnotesize\ttfamily bool Bigram\+Counter\+::calculate\+Frequencies (\begin{DoxyParamCaption}\item[{const char}]{file\+Name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Reads the given text file and calculates the frequencies of each bigram in that file. Modifier method. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::ios\+\_\+base\+::failure} & Throws a std\+::ios\+\_\+base\+::failure exception if the given file cannot be opened \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to process. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the file could be read; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124                                                               \{}
+\DoxyCodeLine{125     std::string valor;}
+\DoxyCodeLine{126     std::ifstream fichero;}
+\DoxyCodeLine{127     fichero.open(fileName);}
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} (!fichero)}
+\DoxyCodeLine{129         \textcolor{keywordflow}{throw} std::ios\_base::failure(\textcolor{stringliteral}{"{}Error al leer el fichero"{}});}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{keywordflow}{while} (fichero >> valor) \{}
+\DoxyCodeLine{132         valor = aMinuscula(valor);}
+\DoxyCodeLine{133         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < valor.size(); i++)}
+\DoxyCodeLine{134             \textcolor{keywordflow}{if} (findCharacter(valor[i -\/ 1], \_validCharacters) != -\/1 \&\& findCharacter(valor[i], \_validCharacters) != -\/1) \{}
+\DoxyCodeLine{135                 \mbox{\hyperlink{classBigram}{Bigram}} bigrama(valor[i -\/ 1], valor[i]);}
+\DoxyCodeLine{136                 \mbox{\hyperlink{classBigramCounter_ad0b04559c04782c68f47c82b3fb14f1f}{increaseFrequency}}(bigrama);}
+\DoxyCodeLine{137             \}}
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{139     fichero.close();}
+\DoxyCodeLine{140     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{141 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_aeae84f67db04dd40a0e55283bb726875}\label{classBigramCounter_aeae84f67db04dd40a0e55283bb726875}} 
+\index{BigramCounter@{BigramCounter}!getNumberActiveBigrams@{getNumberActiveBigrams}}
+\index{getNumberActiveBigrams@{getNumberActiveBigrams}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{getNumberActiveBigrams()}{getNumberActiveBigrams()}}
+{\footnotesize\ttfamily int Bigram\+Counter\+::get\+Number\+Active\+Bigrams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of bigrams with a frequency greater than 0. Query method. 
+
+\begin{DoxyReturn}{Returns}
+the number of bigrams with a frequency greater than 0 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                                 \{}
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} resultado = 0;}
+\DoxyCodeLine{56     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}(); i++)}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}(); j++)}
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} (\_frequency[i][j] > 0)}
+\DoxyCodeLine{59                 resultado++;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}\label{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}} 
+\index{BigramCounter@{BigramCounter}!getSize@{getSize}}
+\index{getSize@{getSize}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Bigram\+Counter\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number (size) of valid characters that are considered as part of a word in this \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object. Query method. 
+
+\begin{DoxyReturn}{Returns}
+the number (size) of valid characters that are considered as part of a word in this \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                                  \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} \_validCharacters.size();}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_ad0b04559c04782c68f47c82b3fb14f1f}\label{classBigramCounter_ad0b04559c04782c68f47c82b3fb14f1f}} 
+\index{BigramCounter@{BigramCounter}!increaseFrequency@{increaseFrequency}}
+\index{increaseFrequency@{increaseFrequency}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{increaseFrequency()}{increaseFrequency()}}
+{\footnotesize\ttfamily void Bigram\+Counter\+::increase\+Frequency (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigram}{Bigram}} \&}]{bigram,  }\item[{const int \&}]{frequency = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Increases the current frequency of the given bigram using the value provided with {\ttfamily frequency}. If {\ttfamily frequency} is 0 or frequency is not provided, then 1 is added to the current frequency of the bigram. Modifier method. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & This method throws an std\+::invalid\+\_\+argument exception if the given bigram is not valid \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em bigram} & The bigram in which the frequency will be modified. Input parameter \\
+\hline
+{\em frequency} & The quantity that will be added to the current frequency. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                                                                                 \{}
+\DoxyCodeLine{82     \textcolor{keywordflow}{if} (findCharacter(bigram.\mbox{\hyperlink{classBigram_ae653a8bb70d1f0f8ddde88196ef51564}{at}}(0), \_validCharacters) == -\/1 \&\& findCharacter(bigram.\mbox{\hyperlink{classBigram_ae653a8bb70d1f0f8ddde88196ef51564}{at}}(0), \_validCharacters) == -\/1)}
+\DoxyCodeLine{83         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}bigrama no valido"{}});}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{int} extra = 0;}
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} (frequency < 0)}
+\DoxyCodeLine{87         \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}se intento aumentar una frecuencia con un numero negativo en una matriz"{}});}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordflow}{if} (frequency == 0)}
+\DoxyCodeLine{90         extra = 1;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{int} pos1 = findCharacter(bigram.\mbox{\hyperlink{classBigram_ae653a8bb70d1f0f8ddde88196ef51564}{at}}(0), \_validCharacters);}
+\DoxyCodeLine{93     \textcolor{keywordtype}{int} pos2 = findCharacter(bigram.\mbox{\hyperlink{classBigram_ae653a8bb70d1f0f8ddde88196ef51564}{at}}(1), \_validCharacters);}
+\DoxyCodeLine{94     \textcolor{keywordflow}{if} (pos1 != -\/1 \&\& pos2 != -\/1)}
+\DoxyCodeLine{95         \_frequency[pos1][pos2] = \_frequency[pos1][pos2] + extra + frequency;}
+\DoxyCodeLine{96 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_a13b2e84e72d3daf0ca7da44a9d9b56a7}\label{classBigramCounter_a13b2e84e72d3daf0ca7da44a9d9b56a7}} 
+\index{BigramCounter@{BigramCounter}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \& Bigram\+Counter\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator +=. It increases the current frequencies of the bigrams of this object with the frequencies of the bigrams of the given object. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & a \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this object 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113                                                                  \{}
+\DoxyCodeLine{114     \textcolor{keywordflow}{if} (\_validCharacters == rhs.\_validCharacters)}
+\DoxyCodeLine{115         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rhs.\mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}(); i++)}
+\DoxyCodeLine{116             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < rhs.\mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}(); j++)}
+\DoxyCodeLine{117                 \_frequency[i][j] = \_frequency[i][j] + rhs.\_frequency[i][j];}
+\DoxyCodeLine{118     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{119         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Se intentaron sumar dos BigramCounters con distintos caracteres validos"{}});}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_a7ca3ed137530062b5874b84ad9e274c4}\label{classBigramCounter_a7ca3ed137530062b5874b84ad9e274c4}} 
+\index{BigramCounter@{BigramCounter}!operator=@{operator=}}
+\index{operator=@{operator=}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \& Bigram\+Counter\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} \&}]{orig }\end{DoxyParamCaption})}
+
+
+
+Overloading of the assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & the \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object used as source for the assignment. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this object 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98                                                                  \{}
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&orig) \{}
+\DoxyCodeLine{100         \textcolor{keywordtype}{int} tamanio = orig.\mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}();}
+\DoxyCodeLine{101         liberarM();}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         \_validCharacters = orig.\_validCharacters;}
+\DoxyCodeLine{104         asignarM();}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < tamanio; i++)}
+\DoxyCodeLine{107             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < tamanio; j++)}
+\DoxyCodeLine{108                 \_frequency[i][j] = orig.\_frequency[i][j];}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{111 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_a2cdbbd49dd9d4f4b3524f3e9323bac8f}\label{classBigramCounter_a2cdbbd49dd9d4f4b3524f3e9323bac8f}} 
+\index{BigramCounter@{BigramCounter}!setFrequency@{setFrequency}}
+\index{setFrequency@{setFrequency}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{setFrequency()}{setFrequency()}}
+{\footnotesize\ttfamily bool Bigram\+Counter\+::set\+Frequency (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigram}{Bigram}} \&}]{bigram,  }\item[{const int \&}]{frequency }\end{DoxyParamCaption})}
+
+
+
+Sets the frequency of the given bigram using the value provided with {\ttfamily frequency}. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bigram} & The bigram in which the frequency will be set. Input parameter \\
+\hline
+{\em frequency} & The new frequency. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the bigram was found in this object. false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                                                            \{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (frequency < 0)}
+\DoxyCodeLine{66         \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}se intento meter una frecuencia negativa en una matriz"{}});}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{bool} salida = \textcolor{keyword}{false};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} pos1 = findCharacter(bigram.\mbox{\hyperlink{classBigram_ae653a8bb70d1f0f8ddde88196ef51564}{at}}(0), \_validCharacters);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} pos2 = findCharacter(bigram.\mbox{\hyperlink{classBigram_ae653a8bb70d1f0f8ddde88196ef51564}{at}}(1), \_validCharacters);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} (!(pos1 == -\/1 || pos2 == -\/1)) \{}
+\DoxyCodeLine{74         salida = \textcolor{keyword}{true};}
+\DoxyCodeLine{75         \_frequency[pos1][pos2] = frequency;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} salida;}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBigramCounter_ac37bc354abb2c51147e5b3fb71fc2d05}\label{classBigramCounter_ac37bc354abb2c51147e5b3fb71fc2d05}} 
+\index{BigramCounter@{BigramCounter}!toLanguage@{toLanguage}}
+\index{toLanguage@{toLanguage}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{toLanguage()}{toLanguage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLanguage}{Language}} Bigram\+Counter\+::to\+Language (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Builds a \mbox{\hyperlink{classLanguage}{Language}} object from this \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object. The \mbox{\hyperlink{classLanguage}{Language}} will contain the bigrams and frequencies for those one with a frequency greater than 0. Query method. 
+
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classLanguage}{Language}} object from this \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} object 
+\end{DoxyReturn}
+
+
+Definition at line 143 of file Bigram\+Counter.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143                                          \{}
+\DoxyCodeLine{144     \mbox{\hyperlink{classLanguage}{Language}} resultado;}
+\DoxyCodeLine{145     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}(); i++)}
+\DoxyCodeLine{146         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classBigramCounter_aed7f8902b908a132ed4d8858de6a6934}{getSize}}(); j++)}
+\DoxyCodeLine{147             \textcolor{keywordflow}{if} (\_frequency[i][j] > 0) \{}
+\DoxyCodeLine{148                 \mbox{\hyperlink{classBigram}{Bigram}} bigrama(\_validCharacters[i], \_validCharacters[j]);}
+\DoxyCodeLine{149                 \mbox{\hyperlink{classBigramFreq}{BigramFreq}} bigramFreq;}
+\DoxyCodeLine{150                 bigramFreq.\mbox{\hyperlink{classBigramFreq_af3f304d72677d24ec0bc8e5a62358564}{setBigram}}(bigrama);}
+\DoxyCodeLine{151                 bigramFreq.\mbox{\hyperlink{classBigramFreq_ac79fcef10bffbab2f45d7da859e54af8}{setFrequency}}(\_frequency[i][j]);}
+\DoxyCodeLine{152                 resultado.\mbox{\hyperlink{classLanguage_aea97cefb20776d2215f58c13009a8eb7}{append}}(bigramFreq);}
+\DoxyCodeLine{153             \}}
+\DoxyCodeLine{154     resultado.\mbox{\hyperlink{classLanguage_a9e5992e8893e995e99677da8a73094b8}{sort}}();}
+\DoxyCodeLine{155     \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{156 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBigramCounter_a0a8914821e4dffaf4beb276d02324ab8}\label{classBigramCounter_a0a8914821e4dffaf4beb276d02324ab8}} 
+\index{BigramCounter@{BigramCounter}!DEFAULT\_VALID\_CHARACTERS@{DEFAULT\_VALID\_CHARACTERS}}
+\index{DEFAULT\_VALID\_CHARACTERS@{DEFAULT\_VALID\_CHARACTERS}!BigramCounter@{BigramCounter}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_VALID\_CHARACTERS}{DEFAULT\_VALID\_CHARACTERS}}
+{\footnotesize\ttfamily const char $\ast$const Bigram\+Counter\+::\+DEFAULT\+\_\+\+VALID\+\_\+\+CHARACTERS = \char`\"{}abcdefghijklmnopqrstuvwxyz\textbackslash{}x\+E0\textbackslash{}x\+E1\textbackslash{}x\+E2\textbackslash{}x\+E3\textbackslash{}x\+E4\textbackslash{}x\+E5\textbackslash{}x\+E6\textbackslash{}x\+E7\textbackslash{}x\+E8\textbackslash{}x\+E9\textbackslash{}x\+EA\textbackslash{}x\+EB\textbackslash{}x\+EC\textbackslash{}x\+ED\textbackslash{}x\+EE\textbackslash{}x\+EF\textbackslash{}x\+F0\textbackslash{}x\+F1\textbackslash{}x\+F2\textbackslash{}x\+F3\textbackslash{}x\+F4\textbackslash{}x\+F5\textbackslash{}x\+F6\textbackslash{}x\+F8\textbackslash{}x\+F9\textbackslash{}x\+FA\textbackslash{}x\+FB\textbackslash{}x\+FC\textbackslash{}x\+FD\textbackslash{}x\+FE\textbackslash{}x\+FF\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+A const c-\/string with the set of characters that are considered as part of a word. Any other character will be considered a separator ~\newline
+ Only lowercase characters are included in this string. This c-\/string is used in the constructor of this class, as the default value to assign to the field \+\_\+valid\+Chars
+
+DEFAULT\+\_\+\+VALID\+\_\+\+CHARACTERS is a c-\/string that contains the set of characters that will be considered as part of a word (valid chars). The characters not in the c-\/string will be considered as separator of words. The constructor of the class \mbox{\hyperlink{classBigramCounter}{Bigram\+Counter}} uses this c-\/string as a default parameter. It is possible to use a different c-\/string if that constructor is used with a different c-\/string 
+
+Definition at line 37 of file Bigram\+Counter.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Bigram\+Counter.\+h\item 
+src/\mbox{\hyperlink{BigramCounter_8cpp}{Bigram\+Counter.\+cpp}}\end{DoxyCompactItemize}

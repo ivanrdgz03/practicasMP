@@ -1,0 +1,103 @@
+\hypertarget{CLASSIFY_8cpp}{}\doxysection{src/\+CLASSIFY.cpp File Reference}
+\label{CLASSIFY_8cpp}\index{src/CLASSIFY.cpp@{src/CLASSIFY.cpp}}
+{\ttfamily \#include \char`\"{}Bigram\+Counter.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{CLASSIFY_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{show\+English\+Help}} (std\+::ostream \&output\+Stream)
+\item 
+int \mbox{\hyperlink{CLASSIFY_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Silvia Acid Carrillo \href{mailto:acid@decsai.ugr.es}{\texttt{ acid@decsai.\+ugr.\+es}} 
+
+Andrés Cano Utrera \href{mailto:acu@decsai.ugr.es}{\texttt{ acu@decsai.\+ugr.\+es}} 
+
+Luis Castillo Vidal \href{mailto:L.Castillo@decsai.ugr.es}{\texttt{ L.\+Castillo@decsai.\+ugr.\+es}}
+\end{DoxyAuthor}
+Created on 29 January 2023, 11\+:00 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CLASSIFY_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{CLASSIFY_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{CLASSIFY.cpp@{CLASSIFY.cpp}!main@{main}}
+\index{main@{main}!CLASSIFY.cpp@{CLASSIFY.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+This program print the language identifier of the closest language for an input text file ($<$text.\+txt$>$) among the set of provided models\+: $<$lang1.\+bgr$>$, $<$lang2.\+bgr$>$, ...
+
+Running example\+: \begin{quote}
+CLASSIFY $<$text.\+txt$>$ $<$lang1.\+bgr$>$ \mbox{[}$<$lang2.\+bgr$>$ $<$lang3.\+bgr$>$ ...\mbox{]} \end{quote}
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line parameters \\
+\hline
+{\em argv} & The vector of command line parameters (cstrings) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 If there is no error; a value $>$ 0 if error 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file CLASSIFY.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                  \{}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} (argc < 3) \{}
+\DoxyCodeLine{41         \mbox{\hyperlink{CLASSIFY_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}{showEnglishHelp}}(std::cerr);}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     \mbox{\hyperlink{classBigramCounter}{BigramCounter}} bigramcount;}
+\DoxyCodeLine{45     bigramcount.\mbox{\hyperlink{classBigramCounter_a2557b614131c25e88501c67e5d28b713}{calculateFrequencies}}(argv[1]);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{classLanguage}{Language}} language = bigramcount.\mbox{\hyperlink{classBigramCounter_ac37bc354abb2c51147e5b3fb71fc2d05}{toLanguage}}(), primero;}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} pos\_ganador = 2;}
+\DoxyCodeLine{49     primero.\mbox{\hyperlink{classLanguage_af0eeaecee6e1b049f51fb506face7a67}{load}}(argv[pos\_ganador]);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{double} dist\_ganadora = language.\mbox{\hyperlink{classLanguage_af53b895cdd651b53284614fd5a44bd42}{getDistance}}(primero);}
+\DoxyCodeLine{51     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = pos\_ganador + 1; i < argc; i++) \{}
+\DoxyCodeLine{52         \mbox{\hyperlink{classLanguage}{Language}} aux;}
+\DoxyCodeLine{53         aux.\mbox{\hyperlink{classLanguage_af0eeaecee6e1b049f51fb506face7a67}{load}}(argv[i]);}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} (dist\_ganadora >= language.\mbox{\hyperlink{classLanguage_af53b895cdd651b53284614fd5a44bd42}{getDistance}}(aux)) \{}
+\DoxyCodeLine{55             pos\_ganador = i;}
+\DoxyCodeLine{56             dist\_ganadora = language.\mbox{\hyperlink{classLanguage_af53b895cdd651b53284614fd5a44bd42}{getDistance}}(aux);}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59     \mbox{\hyperlink{classLanguage}{Language}} ganador;}
+\DoxyCodeLine{60     ganador.\mbox{\hyperlink{classLanguage_af0eeaecee6e1b049f51fb506face7a67}{load}}(argv[pos\_ganador]);}
+\DoxyCodeLine{61     language.\mbox{\hyperlink{classLanguage_a418b2d2a94102c778e5754f40407feda}{setLanguageId}}(ganador.\mbox{\hyperlink{classLanguage_aae8315a799767910c0bcc0ba47595081}{getLanguageId}}());}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     std::cout << \textcolor{stringliteral}{"{}Final decision: language "{}} << language.\mbox{\hyperlink{classLanguage_aae8315a799767910c0bcc0ba47595081}{getLanguageId}}() << \textcolor{stringliteral}{"{} with a distance of "{}} << dist\_ganadora << std::endl;}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{CLASSIFY_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}\label{CLASSIFY_8cpp_a7b443382ac5a9bb8b903be8e98c82b25}} 
+\index{CLASSIFY.cpp@{CLASSIFY.cpp}!showEnglishHelp@{showEnglishHelp}}
+\index{showEnglishHelp@{showEnglishHelp}!CLASSIFY.cpp@{CLASSIFY.cpp}}
+\doxysubsubsection{\texorpdfstring{showEnglishHelp()}{showEnglishHelp()}}
+{\footnotesize\ttfamily void show\+English\+Help (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+Shows help about the use of this program in the given output stream 
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & The output stream where the help will be shown (for example, cout, cerr, etc) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file CLASSIFY.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                                \{}
+\DoxyCodeLine{22     outputStream << \textcolor{stringliteral}{"{}Error, run with the following parameters:"{}} << std::endl;}
+\DoxyCodeLine{23     outputStream << \textcolor{stringliteral}{"{}CLASSIFY <text.txt> <lang1.bgr> [<lang2.bgr> <lang3.bgr> ....]"{}} << std::endl;}
+\DoxyCodeLine{24     outputStream << \textcolor{stringliteral}{"{}          Obtains the identifier of the closest language to the input text file"{}} << std::endl;}
+\DoxyCodeLine{25     outputStream << std::endl;}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,6 @@
+.projectname
+*.bgr
+.dep.inc
+zip/
+build/
+dist/

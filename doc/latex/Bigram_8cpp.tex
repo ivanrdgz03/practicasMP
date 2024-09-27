@@ -1,0 +1,123 @@
+\hypertarget{Bigram_8cpp}{}\doxysection{src/\+Bigram.cpp File Reference}
+\label{Bigram_8cpp}\index{src/Bigram.cpp@{src/Bigram.cpp}}
+{\ttfamily \#include \char`\"{}Bigram.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{Bigram_8cpp_afe6e716ad7a25257188a41370600dfad}{is\+Valid\+Character}} (char character, const std\+::string \&valid\+Characters)
+\item 
+\mbox{\Hypertarget{Bigram_8cpp_ad3410e0b6af0fd6411d887a9a8ceec45}\label{Bigram_8cpp_ad3410e0b6af0fd6411d887a9a8ceec45}} 
+int {\bfseries find\+Character} (const char \&carac, const std\+::string \&array)
+\item 
+std\+::ostream \& \mbox{\hyperlink{Bigram_8cpp_a52a6d2b3cce397491e550fcb64608751}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classBigram}{Bigram}} \&bigram)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream insertion operator for \mbox{\hyperlink{classBigram}{Bigram}} class. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{Bigram_8cpp_a7eb1e09e1058c37d2568a381e2c1df00}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classBigram}{Bigram}} \&bigram)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream extraction operator for \mbox{\hyperlink{classBigram}{Bigram}} class If it is not possible to read the two character of the bigram from the input stream, then the bigram will be filled with \char`\"{}\+\_\+\+\_\+\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@\+Author\+: Ivan Rodriguez Chacon
+
+Created on 18 de mayo de 2023, 9\+:38 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Bigram_8cpp_afe6e716ad7a25257188a41370600dfad}\label{Bigram_8cpp_afe6e716ad7a25257188a41370600dfad}} 
+\index{Bigram.cpp@{Bigram.cpp}!isValidCharacter@{isValidCharacter}}
+\index{isValidCharacter@{isValidCharacter}!Bigram.cpp@{Bigram.cpp}}
+\doxysubsubsection{\texorpdfstring{isValidCharacter()}{isValidCharacter()}}
+{\footnotesize\ttfamily bool is\+Valid\+Character (\begin{DoxyParamCaption}\item[{char}]{character,  }\item[{const std\+::string \&}]{valid\+Characters }\end{DoxyParamCaption})}
+
+Checks if the given character is contained in {\ttfamily valid\+Characters}. That is, if the given character can be consireded as part of a word. 
+\begin{DoxyParams}{Parameters}
+{\em character} & The character to check \\
+\hline
+{\em valid\+Characters} & The set of characters that we consider as possible characters in a word. Any other character is considered as a separator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given character is contained in {\ttfamily valid\+Characters}; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file Bigram.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77                                                                         \{}
+\DoxyCodeLine{78     \textcolor{keywordtype}{bool} salida = \textcolor{keyword}{false};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < validCharacters.size() \&\& !salida; i++)}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if} (validCharacters[i] == character)}
+\DoxyCodeLine{82             salida = \textcolor{keyword}{true};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordflow}{return} salida;}
+\DoxyCodeLine{85 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Bigram_8cpp_a52a6d2b3cce397491e550fcb64608751}\label{Bigram_8cpp_a52a6d2b3cce397491e550fcb64608751}} 
+\index{Bigram.cpp@{Bigram.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Bigram.cpp@{Bigram.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classBigram}{Bigram}} \&}]{bigram }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream insertion operator for \mbox{\hyperlink{classBigram}{Bigram}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to be used. Output parameter \\
+\hline
+{\em bigram} & the \mbox{\hyperlink{classBigram}{Bigram}} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily os} A reference to the output stream 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Bigram.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                                              \{}
+\DoxyCodeLine{93     os << bigram.\mbox{\hyperlink{classBigram_a7a782c0fe5764cd4d42427fa284b79d1}{toString}}();}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{95 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Bigram_8cpp_a7eb1e09e1058c37d2568a381e2c1df00}\label{Bigram_8cpp_a7eb1e09e1058c37d2568a381e2c1df00}} 
+\index{Bigram.cpp@{Bigram.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Bigram.cpp@{Bigram.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classBigram}{Bigram}} \&}]{bigram }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream extraction operator for \mbox{\hyperlink{classBigram}{Bigram}} class If it is not possible to read the two character of the bigram from the input stream, then the bigram will be filled with \char`\"{}\+\_\+\+\_\+\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to be used. Input/\+Output parameter \\
+\hline
+{\em bigram} & the \mbox{\hyperlink{classBigram}{Bigram}} object. Output parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily A} reference to the input stream 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file Bigram.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97                                                        \{}
+\DoxyCodeLine{98     std::string cadena;}
+\DoxyCodeLine{99     is>>cadena;}
+\DoxyCodeLine{100     bigram.\mbox{\hyperlink{classBigram_a57a489a9a793c55c64cc57b102af0e79}{editText}}(cadena);}
+\DoxyCodeLine{101     \textcolor{keywordflow}{return} is;}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
